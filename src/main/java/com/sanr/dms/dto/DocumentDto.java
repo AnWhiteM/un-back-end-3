@@ -6,14 +6,22 @@ import java.sql.Date;
 import com.sanr.dms.entity.Document;
 import com.sanr.dms.entity.DocumentTypeEnum;
 
-public class DocumentDto extends ConvertAbstract {
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+
+public class DocumentDto extends ConvertAbstract{
 
     private BigInteger id;
+    @NotBlank
     private DocumentTypeEnum documentType;
+    @NotBlank
+    @Size(min = 1, max = 120)
     private String name;
+    @NotBlank
     private String body;
     private Date createdDate;
     private Date signDate;
+    @NotBlank
     private String user;
 
     public BigInteger getId() {
